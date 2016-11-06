@@ -12,6 +12,8 @@ Toolkit makes Azure IoT Development easier
 
 [*] Device management (List, Create, Delete)
 
+[*] Discover Ethernet, USB serial, WiFi devices
+
 [ ] And more...
 
 ## Commands
@@ -38,6 +40,8 @@ Toolkit makes Azure IoT Development easier
 * Device management (List, Create, Delete)
 
 ![Device](images/device.gif)
+
+* Discover Ethernet, USB serial, WiFi devices
 
 
 ## Configuration
@@ -72,6 +76,9 @@ By default, anonymous telemetry data collection is turned on to understand user 
 ```
 
 ## Change Log
+### 0.0.3
+* Discover Ethernet, USB serial, WiFi devices
+
 ### 0.0.2
 * Device management (List, Create, Delete)
 
