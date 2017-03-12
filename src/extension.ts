@@ -1,8 +1,13 @@
 "use strict";
 import * as vscode from "vscode";
 import { AzureIoTExplorer } from "./azureIoTExplorer";
+import { IotViewManager } from "./iotViewManager";
 
 export function activate(context: vscode.ExtensionContext) {
+    let iotViewManager = new IotViewManager(context);
+
+    let showIotView = vscode.commands.registerCommand("azure-iot-toolkit.showIotView", () => iotViewManager.showIotView());
+
     let azureIoTExplorer = new AzureIoTExplorer(context);
 
     let sendD2CMessage = vscode.commands.registerCommand("azure-iot-toolkit.sendD2CMessage", () => {
@@ -67,6 +72,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     vscode.workspace.onDidChangeTextDocument((event) => azureIoTExplorer.replaceConnectionString(event));
 
+    context.subscriptions.push(showIotView);
     context.subscriptions.push(sendD2CMessage);
     context.subscriptions.push(startMonitorIoTHubMessage);
     context.subscriptions.push(stopMonitorIoTHubMessage);

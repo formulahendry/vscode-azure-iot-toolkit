@@ -6,7 +6,6 @@ import { Utility } from "./utility";
 
 export class BaseExplorer {
     protected _outputChannel: vscode.OutputChannel;
-    protected _appInsightsClient: AppInsightsClient;
 
     constructor(outputChannel: vscode.OutputChannel) {
         this._outputChannel = outputChannel;

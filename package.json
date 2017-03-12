@@ -31,6 +31,7 @@
   },
   "activationEvents": [
     "*",
+    "onCommand:azure-iot-toolkit.showIotView",
     "onCommand:azure-iot-toolkit.sendD2CMessage",
     "onCommand:azure-iot-toolkit.startMonitorIoTHubMessage",
     "onCommand:azure-iot-toolkit.sendC2DMessage",
@@ -47,6 +48,10 @@
   "main": "./out/src/extension",
   "contributes": {
     "commands": [
+      {
+        "command": "azure-iot-toolkit.showIotView",
+        "title": "IoT: Show IoT View"
+      },
       {
         "command": "azure-iot-toolkit.sendD2CMessage",
         "title": "IoT: Send message to IoT Hub"
@@ -148,6 +153,11 @@
     ],
     "menus": {
       "editor/context": [
+        {
+          "when": "!inOutput",
+          "command": "azure-iot-toolkit.showIotView",
+          "group": "navigation"
+        },
         {
           "when": "!inOutput",
           "command": "azure-iot-toolkit.sendD2CMessage",
@@ -289,9 +299,8 @@
     ]
   },
   "scripts": {
-    "vscode:prepublish": "tsc -p ./",
-    "compile": "tsc -watch -p ./",
-    "postinstall": "node ./node_modules/vscode/bin/install",
+    "vscode:prepublish": "tsc -p ./ && cd ./html && npm run build",
+    "postinstall": "node ./node_modules/vscode/bin/install && cd ./html && npm install",
     "tslint": "tslint -t verbose src/**/*.ts",
     "version": "tsc -v"
   },
@@ -310,6 +319,7 @@
     "azure-iot-device-mqtt": "^1.1.7",
     "azure-iothub": "1.0.18",
     "device-discovery-cli": "^0.5.9",
+    "express": "^4.15.2",
     "scp2": "^0.5.0",
     "simple-ssh": "^0.9.0"
   }
