@@ -4,6 +4,14 @@ import { AzureIoTExplorer } from "./azureIoTExplorer";
 import { DeviceTree } from "./deviceTree";
 
 export function activate(context: vscode.ExtensionContext) {
+    vscode.window.showWarningMessage("This Azure IoT Toolkit is deprecated - please uninstall it and install the Microsoft offical extension.",
+        "View official extension").then((selection) => {
+            if (selection) {
+                vscode.commands.executeCommand("vscode.open",
+                    vscode.Uri.parse("https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit"));
+            }
+        });
+
     let azureIoTExplorer = new AzureIoTExplorer(context);
     let deviceTree = new DeviceTree(context);
 

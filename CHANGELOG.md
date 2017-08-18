@@ -1,3 +1,6 @@
+### 0.1.5 (2017-08-??)
+* Make this extension as deprecated since it is moved to Microsoft offical extension
+
 ### 0.1.4 (2017-08-09)
 * Invoke Direct Method
 * Get/update Device Twin

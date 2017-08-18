@@ -1,8 +1,8 @@
 {
   "name": "azure-iot-toolkit",
-  "displayName": "Azure IoT Toolkit",
+  "displayName": "[DEPRECATED] Azure IoT Toolkit",
   "description": "Interact with Azure IoT Hub and Azure Event Hub; IoT Device Management; IoT Hub Code Snippets; Discover Ethernet, USB serial, WiFi connected devices; Deploy and run in remote machine (e.g. Raspberry Pi, Arduino)",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "publisher": "formulahendry",
   "icon": "logo.png",
   "engines": {
@@ -53,7 +53,7 @@
       "explorer": [
         {
           "id": "iotHubDevices",
-          "name": "IoT Hub Devices"
+          "name": "[DEPRECATED] IoT Hub Devices"
         }
       ]
     },
