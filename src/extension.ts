@@ -1,5 +1,6 @@
 "use strict";
 import * as vscode from "vscode";
+import { AppInsightsClient } from "./appInsightsClient";
 import { AzureIoTExplorer } from "./azureIoTExplorer";
 import { DeviceTree } from "./deviceTree";
 
@@ -9,6 +10,9 @@ export function activate(context: vscode.ExtensionContext) {
             if (selection) {
                 vscode.commands.executeCommand("vscode.open",
                     vscode.Uri.parse("https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit"));
+                AppInsightsClient.sendEvent("DeprecatedMessage.Open");
+            } else {
+                AppInsightsClient.sendEvent("DeprecatedMessage.Dismiss");
             }
         });
 
