@@ -19,7 +19,7 @@ export function activate(context: vscode.ExtensionContext) {
     let azureIoTExplorer = new AzureIoTExplorer(context);
     let deviceTree = new DeviceTree(context);
 
-    vscode.window.registerTreeDataProvider("iotHubDevices", deviceTree);
+    vscode.window.registerTreeDataProvider("iotHubDevicesDeprecated", deviceTree);
 
     context.subscriptions.push(vscode.commands.registerCommand("azure-iot-toolkit.refreshDeviceTree", () => {
         deviceTree.refresh();
