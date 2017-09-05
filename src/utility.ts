@@ -19,6 +19,25 @@ export class Utility {
                 if (value !== undefined) {
                     config.update(id, value, true);
                     return value;
+                } else {
+                    const GoToAzureRegistrationPage = "Go to Azure registration page";
+                    const GoToAzureIoTHubPage = "Go to Azure IoT Hub page";
+                    vscode.window.showInformationMessage("Don't have Azure IoT Hub? Register a free Azure account to get a free one.",
+                        GoToAzureRegistrationPage, GoToAzureIoTHubPage).then((selection) => {
+                            switch (selection) {
+                                case GoToAzureRegistrationPage:
+                                    vscode.commands.executeCommand("vscode.open",
+                                        vscode.Uri.parse("https://azure.microsoft.com/en-us/free/"));
+                                    AppInsightsClient.sendEvent("Open.AzureRegistrationPage");
+                                    break;
+                                case GoToAzureIoTHubPage:
+                                    vscode.commands.executeCommand("vscode.open",
+                                        vscode.Uri.parse("https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-get-started"));
+                                    AppInsightsClient.sendEvent("Open.AzureIoTHubPage");
+                                    break;
+                                default:
+                            }
+                        });
                 }
                 return null;
             });

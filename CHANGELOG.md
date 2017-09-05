@@ -1,4 +1,7 @@
-### 0.1.5 (2017-08-??)
+### 0.1.6 (2017-09-05)
+* Add 'Azure registration' and 'Azure IoT Hub' page
+
+### 0.1.5 (2017-08-21)
 * Make this extension as deprecated since it is moved to Microsoft offical extension
 
 ### 0.1.4 (2017-08-09)
