@@ -5,14 +5,24 @@ import { AzureIoTExplorer } from "./azureIoTExplorer";
 import { DeviceTree } from "./deviceTree";
 
 export function activate(context: vscode.ExtensionContext) {
+    const viewExtension = "View official extension";
+    const installExtension = "Install official extension";
     vscode.window.showWarningMessage("This Azure IoT Toolkit is deprecated - please uninstall it and install the Microsoft offical extension.",
-        "View official extension").then((selection) => {
-            if (selection) {
-                vscode.commands.executeCommand("vscode.open",
-                    vscode.Uri.parse("https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit"));
-                AppInsightsClient.sendEvent("DeprecatedMessage.Open");
-            } else {
-                AppInsightsClient.sendEvent("DeprecatedMessage.Dismiss");
+        viewExtension, installExtension).then((selection) => {
+            switch (selection) {
+                case viewExtension:
+                    vscode.commands.executeCommand("vscode.open",
+                        vscode.Uri.parse("https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit"));
+                    AppInsightsClient.sendEvent("DeprecatedMessage.Open");
+                    break;
+                case installExtension:
+                    const terminal = vscode.window.createTerminal("Install");
+                    terminal.show();
+                    terminal.sendText("code --install-extension vsciot-vscode.azure-iot-toolkit");
+                    AppInsightsClient.sendEvent("DeprecatedMessage.Install");
+                    break;
+                default:
+                    AppInsightsClient.sendEvent("DeprecatedMessage.Dismiss");
             }
         });
 

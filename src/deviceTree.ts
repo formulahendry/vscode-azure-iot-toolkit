@@ -39,8 +39,15 @@ export class DeviceTree implements vscode.TreeDataProvider<DeviceItem> {
                 } else {
                     deviceList.forEach((device, index) => {
                         let image = device.connectionState.toString() === "Connected" ? "device-on.png" : "device-off.png";
+                        let deviceConnectionString = "";
+                        if (device.authentication.SymmetricKey.primaryKey != null) {
+                            deviceConnectionString = ConnectionString.createWithSharedAccessKey(hostName, device.deviceId,
+                                device.authentication.SymmetricKey.primaryKey);
+                        } else if (device.authentication.x509Thumbprint.primaryThumbprint != null) {
+                            deviceConnectionString = ConnectionString.createWithX509Certificate(hostName, device.deviceId);
+                        }
                         devices.push(new DeviceItem(device.deviceId,
-                            ConnectionString.createWithSharedAccessKey(hostName, device.deviceId, device.authentication.SymmetricKey.primaryKey),
+                            deviceConnectionString,
                             this.context.asAbsolutePath(path.join("resources", image)),
                             {
                                 command: "azure-iot-toolkit.getDevice",
