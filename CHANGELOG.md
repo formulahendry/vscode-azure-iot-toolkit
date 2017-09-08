@@ -1,3 +1,6 @@
+### 0.1.7 (2017-09-08)
+* Add option to install official extension
+
 ### 0.1.6 (2017-09-05)
 * Add 'Azure registration' and 'Azure IoT Hub' page
 
