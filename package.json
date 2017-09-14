@@ -2,7 +2,7 @@
   "name": "azure-iot-toolkit",
   "displayName": "[DEPRECATED] Azure IoT Toolkit",
   "description": "[DEPRECATED] Interact with Azure IoT Hub and Azure Event Hub; IoT Device Management; IoT Hub Code Snippets; Discover Ethernet, USB serial, WiFi connected devices; Deploy and run in remote machine (e.g. Raspberry Pi, Arduino)",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "publisher": "formulahendry",
   "icon": "logo.png",
   "engines": {
@@ -53,7 +53,7 @@
       "explorer": [
         {
           "id": "iotHubDevicesDeprecated",
-          "name": "[DEPRECATED] IoT Hub Devices"
+          "name": "[DEPRECATED] IoT Hub Devices [DEPRECATED]"
         }
       ]
     },
@@ -64,11 +64,11 @@
       },
       {
         "command": "azure-iot-toolkit.startMonitorIoTHubMessage",
-        "title": "IoT: Start monitoring IoT Hub message"
+        "title": "IoT: Start monitoring D2C message"
       },
       {
         "command": "azure-iot-toolkit.stopMonitorIoTHubMessage",
-        "title": "IoT: Stop monitoring IoT Hub message"
+        "title": "IoT: Stop monitoring D2C message"
       },
       {
         "command": "azure-iot-toolkit.sendC2DMessage",

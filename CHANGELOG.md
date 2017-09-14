@@ -1,3 +1,6 @@
+### 0.1.8 (2017-09-14)
+* Install official extension for VS Code Insiders
+
 ### 0.1.7 (2017-09-08)
 * Add option to install official extension
 
