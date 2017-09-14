@@ -14,7 +14,7 @@ export function activate(context: vscode.ExtensionContext) {
     const installExtension = "Install official extension";
     vscode.window.showWarningMessage<vscode.MessageItem>("This Azure IoT Toolkit is deprecated - please uninstall it and install the Microsoft official extension.",
         { title: viewExtension },
-        { title: installExtension, isCloseAffordance: true }
+        { title: installExtension, isCloseAffordance: true },
     ).then((selection) => {
         switch (selection && selection.title) {
             case viewExtension:
